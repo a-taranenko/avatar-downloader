@@ -1,13 +1,21 @@
 {
   "name": "avatar-downloader",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "This is a very simple program that accesses GitHub API and downloads all users' avatars.",
+  "main": "download_avatars.js",
   "scripts": {
-    "test": "mocha"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-taranenko/avatar-downloader.git"
+  },
+  "author": "Anton Taranenko",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a-taranenko/avatar-downloader/issues"
+  },
+  "homepage": "https://github.com/a-taranenko/avatar-downloader#readme",
   "dependencies": {
     "dotenv": "^2.0.0",
     "request": "^2.78.0"

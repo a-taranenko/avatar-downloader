@@ -21,6 +21,6 @@ module.exports = {
       }
     }
 
-    request.get(requestData, callback);
+    request(requestData, callback);
   }
 }
