@@ -3,7 +3,7 @@ var gitRequest = require('./github-request');
 var doesFolderExist = require('./does-folder-exist');
 
 module.exports = {
-  getRepoContributors: function(repoOwner, repoName, cb) {
+  getRepoContributors: function(repoOwner, repoName) {
     gitRequest.githubRequest(`/repos/${repoOwner}/${repoName}/contributors`, (err, response, body) => {
       // If status is other than 200 then throw an error
       if (response['headers']['status'] !== '200 OK') {
@@ -17,11 +17,12 @@ module.exports = {
         avatarUrl.push(contributor.avatar_url);
       });
 
-      //doesFileExist executes to check for directory, if it doesn't create one
-      doesFolderExist('/vagrant/week2day2/avatars');
+      // doesFileExist executes to check for directory, and creates one if there isn't one
+      doesFolderExist('./avatars');
 
-      avatarUrl.forEach(function (avatarUrl, index) {
-        var filePath = `./avatars/image-${index}.jpg`;
+      avatarUrl.forEach(function(avatarUrl, index) {
+        var filePath = __dirname + `/avatars/${index}.jpg`;
+
         download.downloadImageByURL(avatarUrl, filePath);
       });
     });

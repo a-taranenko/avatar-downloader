@@ -3,7 +3,7 @@ var request = require('request');
 
 module.exports = {
   downloadImageByURL: function(url, filePath) {
-    request(url, function(err, response, body) {
+    request({"uri": url, "encoding": null}, function(err, response, body) {
       if (err) {
         throw err;
       }
